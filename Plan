@@ -1,0 +1,122 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 92
+TITLE: Are We Birds of the Same Feather?
+AUTHORS: Yayati Gupta, Sudarshan Iyengar and Neeharika Kompala
+
+OVERALL EVALUATION: 3 (strong accept)
+
+----------- OVERALL EVALUATION -----------
+This paper is about a social network analysis problem in which one is interested in finding if two persons (represented by nodes in the social network graph) belong to the same community. The goal of this work is to develop techniques that require local exploration of the graph in the neighborhood of the given nodes rather than requiring global analysis of the entire graph.  This paper presents two  breadth-first search techniques for such exploration and evaluate them using 5 social networks. The paper evaluates the accuracy and efficiency of the proposed algorithms.
+
+Paper is well-written and this work represents high intellectual merit.  I enjoyed reading this paper.  The authors have presented their approaches in clean and clear manner.
+
+Some minor points:
+
+On Page 3:  It is not clear how modality Q is computed. Specifically, how A_(ij) value is determined.
+
+On Page 3: second column:  The authors make a remark about nodes with high "betweenness" values,
+that "Removal of such nodes leaves the graph disconnected..".
+I am not sure this right. Certainly there is a high probability that removal of such nodes would leave the graph disconnected, but it may not necessarily hold true always.
+
+On the last page: There are Figures 8 and 9. Both have exactly the same caption.  Paper does not discuss or elaborate upon these.
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 92
+TITLE: Are We Birds of the Same Feather?
+AUTHORS: Yayati Gupta, Sudarshan Iyengar and Neeharika Kompala
+
+OVERALL EVALUATION: 2 (accept)
+
+----------- OVERALL EVALUATION -----------
+Overall Evaluation :  The submission provides sufficient novelty, relevance, and rigor. The community detection problem is one of the most celebrated problems in complex networks but this paper basically addresses the membership problem of nodes in local context. Though much work has been done in the related areas but the way authors have addressed this problem is a totally new take with a accuracy of 50% in worst case of Cooperfield Networks.
+
+
+Positive Reviews : I enjoyed reading this paper because of its simplicity. They have addressed a very general problem in a different dimension. Combining the existing things to come up with both accurate and efficient node pairs community identification is a innovation itself. Also they have come up with good graphs to validate their findings. The algorithms are properly explained. The paper is well structured and the research questions have been correctly highlighted. The example networks cover sufficient domains of complex networks.
+
+Negative Reviews :  The paper is well written but the basics of networks relating to modularity, centrality measures are explained too much in detail. Also I think the stopping criteria of 100 nodes for PDFT is somehow dependent on network size and not to be taken as a fixed value. The challenges faced by the system are not highlighted.
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 92
+TITLE: Are We Birds of the Same Feather?
+AUTHORS: Yayati Gupta, Sudarshan Iyengar and Neeharika Kompala
+
+OVERALL EVALUATION: 1 (weak accept)
+
+----------- OVERALL EVALUATION -----------
+The papers aims to find if two nodes in a complex network belong to same community or not. Overall the paper has addressed a real-time relevant problem and motivated it well. However, there are certain points that need to be taken care of.
+
+1. It is mentioned that the community detection problem has been addressed previously which is a harder problem than the one undertaken in this paper. This means that the current binary decision problem can also be solved by the prior community detection solution approaches. Hence, it would be appropriate to demonstrate how the proposed approach outperform the prior researches through comparison.
+2. It is necessary to define the intersection operator (inverted V) over the trees.
+3. Line 10 of algorithm 1 is unnecessary and the condition on line 11 needs a clear explanation.\
+4. Time complexity analysis may provide better insights on how efficient these algorithms are on large scale complex networks.
+5. It was not clear on "multiple explorers" starting to explore from the seed node to perform SBFT. How many explorers are considered.
+6. Selecting a threshold of 100 requires citation.
+7. Mentioned that a few pairs explore a significant fraction of network, what is the reason behind this?
+
+Editorial comments:
+1. Section 1, para 2, "It makes it easy..". Rephrase
+2. Subsection 3.2.2, "for i an be" --> can be
+3. I believe, subsection 3.2.1, para 3, first sentence "The correlations....Figure 4" is refering Figure 3.
+
+
+----------------------- REVIEW 4 ---------------------
+PAPER: 92
+TITLE: Are We Birds of the Same Feather?
+AUTHORS: Yayati Gupta, Sudarshan Iyengar and Neeharika Kompala
+
+OVERALL EVALUATION: -1 (weak reject)
+
+----------- OVERALL EVALUATION -----------
+The paper proposes two algorithms, breadth first traversal algorithm and probabilistic depth first traversal algorithm, to predict whether a pair of nodes belongs to the same community or not. What is more, because the proposed two algorithms don’t need to utilize the whole network information, a prediction of a pair of nodes can be completed efficiently.
+
+However, there are several concerns about the proposed algorithms.
+First of all, the use of overlapping of trees rooted in the pair of nodes as the estimated probability that the pair belongs to the same community has problems. The major problem is that there is no proof that the overlapping can be used to accurately estimate the probability even though the larger the overlapping, the higher the probability.Also, what is the optimal probability threshold to predict as positive? Because each community may have distinct structure, the optimal threshold for different communities may be different. But in the paper, there is no discussion about it.
+Secondly, the accuracy achieved cannot be evaluated as there is no comparison with baselines. Even though there may be no baselines particular for prediction of a pair of nodes, the comparison can be made in terms of recall rate, i.e. how accurately it predict the pair of nodes what truly belongs to the same community.
+Thirdly, there is no evaluation how the stopping criterion influences the performance of the PDFT algorithm. In the paper, it just chooses the average number of nodes in a community. But as stated before, each community may have distinct structure, one may never know the number of nodes in a community especially when the whole network information is not available.
+
+
+
+
+AUTHORS:
+
+Plot betweenness of nodes against the fraction of graph explored. (There are 2 nodes whose betweenness we should look at). X axis- Fraction, Y axis- Betweenness of 2 nodes. 
+Do the experiments for all the big networks. 
+Instead of 0 and 1 for answer, can we have a fuzzy value. 
+Confusion Matrix (False Positives etc..)
+Check if we can take some more synthetic networks 
+See whether the errors come for the nodes which explore more of the network or for the nodes which explore less of the network. 
+Is there a way to find which are the nodes lying in the overlapping communities and then say that these are the ones for which either a large fraction of the graph is traversed or the results are wrong. 
+Results may depend on the size and the density of the community  as well. Check whether theh wrong results have something to do with the community of the seed nodes. 
+Can you take the nodes that act as bridge between two communities, plot their degree/clustering , see average and standard deviation. Do the same thing for the remaining nodes which lie properly inside a community.
+
+
+
+NEEHARIKA--------------------
+Review two:
+100 nodes is taken as a limit based on a study.  It is citied.
+What sort of challenges faced by system is just mentioned and not highlighted.
+
+Review one:
+page three about removing betweenness edges is actually a community detection algorithm method. Also the paper can be citied, the original.
+Also the function of modularity detection is of networkx function.
+The figure I think we should name it
+Different or explain their difference.
+
+Review three:
+Yes the intersection part is where we though about Fuzzy set.  We can rather mention it as an idea for further work.
+We can add time complexity as time complexity is definitely better than of current model when we get solution,  right or wrong.
+Also the exploration is s ale free,  we can see for what nodes it's big and see what makes its exploration also huge than others.
+
+Review four:
+To explain overlap we do tell about how random paths get stuck inside of the community itseems and our observation section also talks about it.
+We can explain more if required.
+There is minimum and maximum limit for the random. Walk algorithm as if it is smaller than than 100 it wouldn't cross the number in first place.
+We can tell about the Fuzzy set more in detail to determine accuracy further.
+We have evaluated it against the networkx community detection function. That is the baseline we are using.
+We did it but didn't mention it anywhere.
+Again here in case of PDT algo we can cite the study how in real world 100 is how big a community can be of close ppl.
+ 
+I also think ma'am maybe we should try running the same for overlapping communities,  i think accuracy might actually be more. 
+
